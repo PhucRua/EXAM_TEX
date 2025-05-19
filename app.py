@@ -4,8 +4,6 @@ import re
 import json
 import uuid
 import base64
-import subprocess
-import tempfile
 import time
 from datetime import datetime
 from pathlib import Path
@@ -161,39 +159,6 @@ def extract_questions_from_tex(tex_content):
     
     return questions
 
-def convert_tex_to_html(tex_content):
-    """Chuyển đổi LaTeX thành HTML bằng pandoc"""
-    with tempfile.NamedTemporaryFile(suffix='.tex', mode='w+', delete=False) as f:
-        f.write(f"""
-\\documentclass{{article}}
-\\usepackage{{amsmath}}
-\\usepackage{{amssymb}}
-\\begin{{document}}
-{tex_content}
-\\end{{document}}
-        """)
-        tex_file = f.name
-    
-    try:
-        # Chạy pandoc
-        html_file = tex_file.replace('.tex', '.html')
-        subprocess.run(['pandoc', tex_file, '-o', html_file, '--mathjax'], check=True)
-        
-        # Đọc file HTML
-        with open(html_file, 'r') as f:
-            html_content = f.read()
-        
-        # Xóa file tạm thời
-        os.unlink(tex_file)
-        os.unlink(html_file)
-        
-        return html_content
-    except Exception as e:
-        st.error(f"Lỗi khi chuyển đổi TeX: {str(e)}")
-        if os.path.exists(tex_file):
-            os.unlink(tex_file)
-        return tex_content
-
 # Phần đăng nhập
 def login_page():
     st.markdown("<h1 class='main-header'>Đăng nhập hệ thống</h1>", unsafe_allow_html=True)
@@ -221,7 +186,7 @@ def teacher_interface():
     if st.sidebar.button("Đăng xuất"):
         for key in list(st.session_state.keys()):
             del st.session_state[key]
-        st.experimental_rerun()
+        st.rerun()
     
     # Tab để chọn giữa tạo đề thi mới và xem các đề thi đã tạo
     tab1, tab2 = st.tabs(["Tạo đề thi mới", "Quản lý đề thi"])
@@ -267,12 +232,6 @@ def create_exam():
                 if not questions:
                     st.error("Không tìm thấy câu hỏi nào trong file .tex")
                     return
-                
-                # Xử lý và chuyển đổi LaTeX thành HTML
-                for q in questions:
-                    q["stem_html"] = convert_tex_to_html(q["stem"])
-                    q["solution_html"] = convert_tex_to_html(q["solution"])
-                    q["options_html"] = [convert_tex_to_html(opt) for opt in q["options"]]
                 
                 # Tạo đề thi mới
                 exam_id = str(uuid.uuid4())
@@ -324,7 +283,7 @@ def manage_exams():
                 if st.button("Xem trước", key=f"preview_{i}"):
                     st.session_state["preview_exam"] = exam
                     st.session_state["current_page"] = "preview_exam"
-                    st.experimental_rerun()
+                    st.rerun()
                 
                 # Nút để xem kết quả
                 if st.button("Kết quả", key=f"results_{i}"):
@@ -365,7 +324,7 @@ def manage_exams():
                 if st.button(active_label, key=f"toggle_{i}"):
                     exams[i]["active"] = not exams[i]["active"]
                     write_exams(exams)
-                    st.experimental_rerun()
+                    st.rerun()
 
 # Giao diện học sinh
 def student_interface():
@@ -374,7 +333,7 @@ def student_interface():
     if st.sidebar.button("Đăng xuất"):
         for key in list(st.session_state.keys()):
             del st.session_state[key]
-        st.experimental_rerun()
+        st.rerun()
     
     user_info = st.session_state["user_info"]
     student_class = user_info.get("class", "")
@@ -413,7 +372,7 @@ def student_interface():
                     st.session_state["current_page"] = "take_exam"
                     st.session_state["start_time"] = time.time()
                     st.session_state["answers"] = [None] * len(exam["questions"])
-                    st.experimental_rerun()
+                    st.rerun()
 
 def preview_exam():
     """Xem trước đề thi - chế độ giáo viên"""
@@ -427,7 +386,7 @@ def preview_exam():
         st.session_state["current_page"] = "home"
         if "preview_exam" in st.session_state:
             del st.session_state["preview_exam"]
-        st.experimental_rerun()
+        st.rerun()
     
     # Hiển thị các câu hỏi
     tabs = st.tabs([f"Câu {i+1}" for i in range(len(exam["questions"]))])
@@ -437,17 +396,17 @@ def preview_exam():
             question = exam["questions"][i]
             
             # Hiển thị nội dung câu hỏi
-            st.markdown(f"<div class='question'>{question['stem_html']}</div>", unsafe_allow_html=True)
+            st.markdown(f"<div class='question'>{question['stem']}</div>", unsafe_allow_html=True)
             
             # Hiển thị các phương án
-            for j, option_html in enumerate(question["options_html"]):
+            for j, option in enumerate(question["options"]):
                 if j == question["correct_answer"]:
-                    st.markdown(f"<p style='color: green; font-weight: bold;'>{chr(65+j)}. {option_html} ✓</p>", unsafe_allow_html=True)
+                    st.markdown(f"<p style='color: green; font-weight: bold;'>{chr(65+j)}. {option} ✓</p>", unsafe_allow_html=True)
                 else:
-                    st.markdown(f"<p>{chr(65+j)}. {option_html}</p>", unsafe_allow_html=True)
+                    st.markdown(f"<p>{chr(65+j)}. {option}</p>", unsafe_allow_html=True)
             
             # Hiển thị lời giải
-            st.markdown(f"<div class='solution'><strong>Lời giải:</strong><br>{question['solution_html']}</div>", unsafe_allow_html=True)
+            st.markdown(f"<div class='solution'><strong>Lời giải:</strong><br>{question['solution']}</div>", unsafe_allow_html=True)
 
 def take_exam():
     """Làm bài thi - chế độ học sinh"""
@@ -478,7 +437,7 @@ def take_exam():
         if st.button("Nộp bài"):
             st.session_state["submitted"] = True
             submit_exam(exam)
-            st.experimental_rerun()
+            st.rerun()
         
         # Hiển thị các câu hỏi
         tabs = st.tabs([f"Câu {i+1}" for i in range(len(exam["questions"]))])
@@ -487,18 +446,17 @@ def take_exam():
             with tab:
                 question = exam["questions"][i]
                 
-                # Hiển thị nội dung câu hỏi
-                st.markdown(f"<div class='question'>{question['stem_html']}</div>", unsafe_allow_html=True)
+                # Hiển thị nội dung câu hỏi bằng LaTeX
+                st.latex(question["stem"])
                 
                 # Hiển thị các phương án
-                options = [f"{chr(65+j)}. {option_html}" for j, option_html in enumerate(question["options_html"])]
+                options = [f"{chr(65+j)}. {option}" for j, option in enumerate(question["options"])]
                 
                 selected = st.radio(
                     "Chọn đáp án:",
                     options,
                     index=-1 if st.session_state["answers"][i] is None else st.session_state["answers"][i],
-                    key=f"q_{i}",
-                    format_func=lambda x: x  # Để hiển thị HTML
+                    key=f"q_{i}"
                 )
                 
                 if selected:
@@ -517,7 +475,7 @@ def take_exam():
             del st.session_state["submitted"]
             if "score" in st.session_state:
                 del st.session_state["score"]
-            st.experimental_rerun()
+            st.rerun()
 
 def submit_exam(exam):
     """Xử lý nộp bài thi"""
@@ -579,22 +537,22 @@ def show_exam_results(exam):
             correct_answer = question["correct_answer"]
             
             # Hiển thị nội dung câu hỏi
-            st.markdown(f"<div class='question'>{question['stem_html']}</div>", unsafe_allow_html=True)
+            st.latex(question["stem"])
             
             # Hiển thị các phương án
-            for j, option_html in enumerate(question["options_html"]):
+            for j, option in enumerate(question["options"]):
                 if j == correct_answer:
-                    st.markdown(f"<p style='color: green; font-weight: bold;'>{chr(65+j)}. {option_html} ✓</p>", unsafe_allow_html=True)
+                    st.markdown(f"<p style='color: green; font-weight: bold;'>{chr(65+j)}. {option} ✓</p>", unsafe_allow_html=True)
                 elif j == user_answer:
                     if user_answer != correct_answer:
-                        st.markdown(f"<p style='color: red;'>{chr(65+j)}. {option_html} ✗</p>", unsafe_allow_html=True)
+                        st.markdown(f"<p style='color: red;'>{chr(65+j)}. {option} ✗</p>", unsafe_allow_html=True)
                     else:
-                        st.markdown(f"<p style='color: green; font-weight: bold;'>{chr(65+j)}. {option_html} ✓</p>", unsafe_allow_html=True)
+                        st.markdown(f"<p style='color: green; font-weight: bold;'>{chr(65+j)}. {option} ✓</p>", unsafe_allow_html=True)
                 else:
-                    st.markdown(f"<p>{chr(65+j)}. {option_html}</p>", unsafe_allow_html=True)
+                    st.markdown(f"<p>{chr(65+j)}. {option}</p>", unsafe_allow_html=True)
             
             # Hiển thị lời giải
-            st.markdown(f"<div class='solution'><strong>Lời giải:</strong><br>{question['solution_html']}</div>", unsafe_allow_html=True)
+            st.latex(question["solution"])
 
 # Luồng chương trình chính
 def main():
