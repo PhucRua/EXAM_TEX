@@ -1,0 +1,74 @@
+[
+  {
+    "id": "e7c6d8f2-3a5b-4c9d-8e1f-2a3b4c5d6e7f",
+    "name": "Đề thi Toán học lớp 12",
+    "description": "Đề thi thử Toán THPT Quốc gia 2025",
+    "time_limit": 90,
+    "classes": ["12A1", "12A2"],
+    "questions": [
+      {
+        "type": "multiple_choice",
+        "stem": "Gieo ngẫu nhiên $2$ đồng tiền thì không gian mẫu của phép thử có bao nhiêu phần tử?",
+        "stem_html": "<p>Gieo ngẫu nhiên <span class=\"math inline\">2</span> đồng tiền thì không gian mẫu của phép thử có bao nhiêu phần tử?</p>",
+        "options": ["$4$", "$8$", "$12$", "$16$"],
+        "options_html": ["<p><span class=\"math inline\">4</span></p>", "<p><span class=\"math inline\">8</span></p>", "<p><span class=\"math inline\">12</span></p>", "<p><span class=\"math inline\">16</span></p>"],
+        "correct_answer": 0,
+        "solution": "Mô tả không gian mẫu ta có $$\\Omega =\\{SS;SN;NS;NN\\}.$$\nVậy không gian mẫu có $4$ phần tử.",
+        "solution_html": "<p>Mô tả không gian mẫu ta có <span class=\"math display\">\\Omega =\\{SS;SN;NS;NN\\}.</span> Vậy không gian mẫu có <span class=\"math inline\">4</span> phần tử.</p>"
+      },
+      {
+        "type": "multiple_choice",
+        "stem": "Nghiệm của phương trình $\\tan x-1=0$ là",
+        "stem_html": "<p>Nghiệm của phương trình <span class=\"math inline\">\\tan x-1=0</span> là</p>",
+        "options": ["$x=\\dfrac{\\pi}{6}+k \\dfrac{\\pi}{2}$, $k\\in \\mathbb{Z}$", "$x=\\dfrac{3 \\pi}{4}+k 2 \\pi$, $k\\in \\mathbb{Z}$", "$x=-\\dfrac{\\pi}{4}+k \\pi$, $k\\in \\mathbb{Z}$", "$x=\\dfrac{\\pi}{4}+k \\pi$, $k\\in \\mathbb{Z}$"],
+        "options_html": ["<p><span class=\"math inline\">x=\\dfrac{\\pi}{6}+k \\dfrac{\\pi}{2}</span>, <span class=\"math inline\">k\\in \\mathbb{Z}</span></p>", "<p><span class=\"math inline\">x=\\dfrac{3 \\pi}{4}+k 2 \\pi</span>, <span class=\"math inline\">k\\in \\mathbb{Z}</span></p>", "<p><span class=\"math inline\">x=-\\dfrac{\\pi}{4}+k \\pi</span>, <span class=\"math inline\">k\\in \\mathbb{Z}</span></p>", "<p><span class=\"math inline\">x=\\dfrac{\\pi}{4}+k \\pi</span>, <span class=\"math inline\">k\\in \\mathbb{Z}</span></p>"],
+        "correct_answer": 3,
+        "solution": "Ta có\n$$\\tan x-1=0\\Leftrightarrow \\tan x=\\tan \\dfrac{\\pi}{4}\\Leftrightarrow x=\\dfrac{\\pi}{4}+k \\pi,~ k\\in \\mathbb{Z}.$$",
+        "solution_html": "<p>Ta có <span class=\"math display\">\\tan x-1=0\\Leftrightarrow \\tan x=\\tan \\dfrac{\\pi}{4}\\Leftrightarrow x=\\dfrac{\\pi}{4}+k \\pi,~ k\\in \\mathbb{Z}.</span></p>"
+      },
+      {
+        "type": "multiple_choice",
+        "stem": "Tập xác định của hàm số $y=\\log _2 x$ là",
+        "stem_html": "<p>Tập xác định của hàm số <span class=\"math inline\">y=\\log _2 x</span> là</p>",
+        "options": ["$[0 ;+\\infty)$", "$(-\\infty ;+\\infty)$", "$(0 ;+\\infty)$", "$[2 ;+\\infty)$"],
+        "options_html": ["<p><span class=\"math inline\">[0 ;+\\infty)</span></p>", "<p><span class=\"math inline\">(-\\infty ;+\\infty)</span></p>", "<p><span class=\"math inline\">(0 ;+\\infty)</span></p>", "<p><span class=\"math inline\">[2 ;+\\infty)</span></p>"],
+        "correct_answer": 2,
+        "solution": "Điều kiện $x>0$. \\Vậy  tập xác định của hàm số $y=\\log _2 x$ là $\\mathscr{D}=(0 ;+\\infty)$.",
+        "solution_html": "<p>Điều kiện <span class=\"math inline\">x&gt;0</span>. Vậy tập xác định của hàm số <span class=\"math inline\">y=\\log _2 x</span> là <span class=\"math inline\">\\mathscr{D}=(0 ;+\\infty)</span>.</p>"
+      }
+    ],
+    "created_at": "2025-05-19T08:00:00",
+    "active": true
+  },
+  {
+    "id": "a1b2c3d4-5e6f-7g8h-9i0j-1k2l3m4n5o6p",
+    "name": "Đề thi Vật lý lớp 11",
+    "description": "Kiểm tra giữa kỳ II Vật lý 11",
+    "time_limit": 45,
+    "classes": ["11A1", "11A2"],
+    "questions": [
+      {
+        "type": "multiple_choice",
+        "stem": "Một vật dao động điều hòa với phương trình $x = 5\\cos(2\\pi t + \\pi/3)$ (cm). Biên độ dao động của vật là:",
+        "stem_html": "<p>Một vật dao động điều hòa với phương trình <span class=\"math inline\">x = 5\\cos(2\\pi t + \\pi/3)</span> (cm). Biên độ dao động của vật là:</p>",
+        "options": ["2 cm", "5 cm", "$\\pi/3$ cm", "2$\\pi$ cm"],
+        "options_html": ["<p>2 cm</p>", "<p>5 cm</p>", "<p><span class=\"math inline\">\\pi/3</span> cm</p>", "<p>2<span class=\"math inline\">\\pi</span> cm</p>"],
+        "correct_answer": 1,
+        "solution": "Phương trình dao động điều hòa có dạng $x = A\\cos(\\omega t + \\varphi)$. So sánh với phương trình đã cho $x = 5\\cos(2\\pi t + \\pi/3)$ ta có biên độ $A = 5$ cm.",
+        "solution_html": "<p>Phương trình dao động điều hòa có dạng <span class=\"math inline\">x = A\\cos(\\omega t + \\varphi)</span>. So sánh với phương trình đã cho <span class=\"math inline\">x = 5\\cos(2\\pi t + \\pi/3)</span> ta có biên độ <span class=\"math inline\">A = 5</span> cm.</p>"
+      },
+      {
+        "type": "multiple_choice",
+        "stem": "Hiện tượng nào sau đây là hiện tượng nhiễu xạ ánh sáng?",
+        "stem_html": "<p>Hiện tượng nào sau đây là hiện tượng nhiễu xạ ánh sáng?</p>",
+        "options": ["Ánh sáng trắng đi qua lăng kính bị tách thành các màu sắc khác nhau", "Ánh sáng đi qua khe hẹp tạo ra các vân sáng, vân tối trên màn", "Ánh sáng đi từ không khí vào nước bị đổi hướng", "Ánh sáng phản xạ trên mặt gương"],
+        "options_html": ["<p>Ánh sáng trắng đi qua lăng kính bị tách thành các màu sắc khác nhau</p>", "<p>Ánh sáng đi qua khe hẹp tạo ra các vân sáng, vân tối trên màn</p>", "<p>Ánh sáng đi từ không khí vào nước bị đổi hướng</p>", "<p>Ánh sáng phản xạ trên mặt gương</p>"],
+        "correct_answer": 1,
+        "solution": "Hiện tượng nhiễu xạ ánh sáng là hiện tượng ánh sáng đi qua khe hẹp tạo ra các vân sáng, vân tối trên màn. Các hiện tượng khác là: phân tán ánh sáng (A), khúc xạ ánh sáng (C), phản xạ ánh sáng (D).",
+        "solution_html": "<p>Hiện tượng nhiễu xạ ánh sáng là hiện tượng ánh sáng đi qua khe hẹp tạo ra các vân sáng, vân tối trên màn. Các hiện tượng khác là: phân tán ánh sáng (A), khúc xạ ánh sáng (C), phản xạ ánh sáng (D).</p>"
+      }
+    ],
+    "created_at": "2025-05-18T10:30:00",
+    "active": true
+  }
+]
