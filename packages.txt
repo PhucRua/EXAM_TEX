@@ -1,9 +1,3 @@
-texlive-base
-texlive-latex-recommended
-texlive-latex-extra
-texlive-fonts-recommended
-texlive-pictures
-texlive-lang-vietnamese
-texlive-xetex
+texlive-full
 imagemagick
 ghostscript
