@@ -210,7 +210,7 @@ def login_page():
             st.session_state["user_type"] = "teacher" if username == "teacher" else "student"
             st.session_state["user_info"] = users[username]
             st.success(f"Đăng nhập thành công! Xin chào {users[username]['name']}")
-            st.experimental_rerun()
+            st.rerun()
         else:
             st.error("Tên đăng nhập hoặc mật khẩu không đúng")
 
