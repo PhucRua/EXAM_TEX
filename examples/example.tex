@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+\usepackage{tkz-tab}
+
+\begin{document}
+
+\title{Đề thi Toán học lớp 12}
+\author{Bộ môn Toán}
+\date{Năm học 2024-2025}
+
+\maketitle
+
+\section{Câu trắc nghiệm}
+
+\begin{ex}
+	Gieo ngẫu nhiên $2$ đồng tiền thì không gian mẫu của phép thử có bao nhiêu phần tử?
+	\choice
+	{\True $4$}
+	{$8$}
+	{$12$}
+	{$16$}
+	\loigiai{Mô tả không gian mẫu ta có $$\Omega =\{SS;SN;NS;NN\}.$$
+	Vậy không gian mẫu có $4$ phần tử.
+	}
+\end{ex}
+
+\begin{ex}
+	Nghiệm của phương trình $\tan x-1=0$ là
+	\choice
+	{$x=\dfrac{\pi}{6}+k \dfrac{\pi}{2}$, $k\in \mathbb{Z}$}
+	{$x=\dfrac{3 \pi}{4}+k 2 \pi$, $k\in \mathbb{Z}$}
+	{$x=-\dfrac{\pi}{4}+k \pi$, $k\in \mathbb{Z}$}
+	{\True $x=\dfrac{\pi}{4}+k \pi$, $k\in \mathbb{Z}$}
+	\loigiai{Ta có
+	$$\tan x-1=0\Leftrightarrow \tan x=\tan \dfrac{\pi}{4}\Leftrightarrow x=\dfrac{\pi}{4}+k \pi,~ k\in \mathbb{Z}.$$
+	}
+\end{ex}
+
+\begin{ex}
+	Tập xác định của hàm số $y=\log _2 x$ là
+	\choice
+	{$[0 ;+\infty)$}
+	{$(-\infty ;+\infty)$}
+	{\True $(0 ;+\infty)$}
+	{$[2 ;+\infty)$}
+	\loigiai{
+	Điều kiện $x>0$. \\Vậy  tập xác định của hàm số $y=\log _2 x$ là $\mathscr{D}=(0 ;+\infty)$.
+	}
+\end{ex}
+
+\begin{ex}
+	Trong mặt phẳng tọa độ $Oxy$, đường tròn tâm $I(3;-1)$ và bán kính $R=2$ có phương trình là
+	\choice
+	{$(x+3)^2+(y-1)^2=4$}
+	{$(x-3)^2+(y-1)^2=4$}
+	{\True $(x-3)^2+(y+1)^2=4$}
+	{$(x+3)^2+(y+1)^2=4$}
+	\loigiai{Đường tròn tâm $I(3 ;-1)$ và bán kính $R=2$ có phương trình là
+	$$(x-3)^2+(y+1)^2=2^2\Leftrightarrow (x-3)^2+(y+1)^2=4.$$}
+\end{ex}
+
+\begin{ex}
+	Cho hàm số $y=f(x)$ có bảng biến thiên trên nửa khoảng $[-5;7)$ như sau
+	\begin{center}
+		\begin{tikzpicture}
+			\tkzTabInit[nocadre,lgt=1.2,espcl=2.5,deltacl=0.6]
+			{$x$/0.6,$y'$/0.6,$y$/2}{$-5$,$1$,$7$}
+			\tkzTabLine{,-,0,+,||}
+			\tkzTabVar{+/$6$,-/$2$,+/$9$}
+		\end{tikzpicture}
+	\end{center}
+	Mệnh đề nào dưới đây đúng?
+	\choice
+	{$\mathop {\min }\limits_{[ - 5;7)}  f(x)=6$}
+	{\True $\mathop {\min }\limits_{[ - 5;7)} f(x)=2$}
+	{$\mathop {\max }\limits_{[ - 5;7)} f(x)=9$}
+	{$\mathop {\max }\limits_{[ - 5;7)} f(x)=6$}
+	\loigiai{
+	Từ bảng biến thiên ta có $\mathop {\min }\limits_{[ - 5;7)} f(x)=2$.}
+\end{ex}
+
+\end{document}
