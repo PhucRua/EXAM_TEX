@@ -1,0 +1,41 @@
+[
+  {
+    "id": "f7e6d5c4-b3a2-1098-8765-4321abcdef98",
+    "exam_id": "e7c6d8f2-3a5b-4c9d-8e1f-2a3b4c5d6e7f",
+    "exam_name": "Đề thi Toán học lớp 12",
+    "student_id": "student1",
+    "student_name": "Nguyễn Văn A",
+    "student_class": "12A1",
+    "score": 2,
+    "total_questions": 3,
+    "answers": [0, 3, 2],
+    "duration": 3482.5,
+    "timestamp": "2025-05-19T09:15:23"
+  },
+  {
+    "id": "a9b8c7d6-e5f4-g3h2-i1j0-k9l8m7n6o5p4",
+    "exam_id": "e7c6d8f2-3a5b-4c9d-8e1f-2a3b4c5d6e7f",
+    "exam_name": "Đề thi Toán học lớp 12",
+    "student_id": "student2",
+    "student_name": "Trần Thị B",
+    "student_class": "12A1",
+    "score": 3,
+    "total_questions": 3,
+    "answers": [0, 3, 2],
+    "duration": 4215.8,
+    "timestamp": "2025-05-19T10:30:45"
+  },
+  {
+    "id": "z1y2x3w4-v5u6-t7s8-r9q0-p1o2n3m4l5k6",
+    "exam_id": "a1b2c3d4-5e6f-7g8h-9i0j-1k2l3m4n5o6p",
+    "exam_name": "Đề thi Vật lý lớp 11",
+    "student_id": "student3",
+    "student_name": "Lê Văn C",
+    "student_class": "11A2",
+    "score": 1,
+    "total_questions": 2,
+    "answers": [1, 0],
+    "duration": 2541.2,
+    "timestamp": "2025-05-18T14:22:10"
+  }
+]
