@@ -1,0 +1,7 @@
+{
+  "teacher": {"password": "teacher123", "name": "Giáo viên"},
+  "student1": {"password": "student123", "name": "Nguyễn Văn A", "class": "12A1"},
+  "student2": {"password": "student123", "name": "Trần Thị B", "class": "12A1"},
+  "student3": {"password": "student123", "name": "Lê Văn C", "class": "11A2"},
+  "student4": {"password": "student123", "name": "Phạm Thị D", "class": "10A1"}
+}
