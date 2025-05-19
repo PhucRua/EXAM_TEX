@@ -1,5 +1,3 @@
-# packages.txt
-pandoc
 texlive-base
 texlive-latex-recommended
 texlive-latex-extra
